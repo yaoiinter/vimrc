@@ -20,6 +20,11 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
+Plugin 'mitsuhiko/flask'
+Plugin 'lepture/vim-jinja'
+Plugin 'chrisgillis/vim-bootstrap3-snippets'
+Plugin 'sirver/ultisnips'
+Plugin 'jlanzarotta/colorschemeexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,10 +34,13 @@ filetype plugin on
 filetype indent on
 set nu
 
-colorscheme base16-default-dark 
-set guifont=Courier_New:h12
+colorscheme base16-hopscotch
+set guifont=Courier_New:h11
+set enc=utf-8
 syntax on
-
+set tabstop=4
+set shiftwidth=4             " 换行时行间交错使用4个空格
+set autoindent               " 自动对齐
 
 set showmatch                " 显示括号配对情况
 
@@ -62,7 +70,7 @@ let g:airline_left_sep = '>'
 let g:airline_right_sep = '<'
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
-
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_spell=1
 let g:airline_theme='dark'
 
@@ -86,3 +94,9 @@ nmap <C-N> :tabe<CR>
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = "bottom"
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
